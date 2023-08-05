@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>반복문</title>
+  </head>
+  <body>
+    <script>
+      let i = 0;
+      // while (i <= 100) {
+      //   console.log("hello");
+      //   i++;
+      // }
+      // for (i = 1; i <= 100; i++) {
+      //   console.log("hi");
+      // }
+      // i = 0;
+      // // while (i < 100) {
+      // //   console.log(i + 1);
+      // //   i++;
+      // // }
+      // for (i = 0; i < 100; i++) {
+      //   console.log(i + 1);
+      // }
+      // i=0
+      // while (true) {
+      //   if (i === 5) break; // 멈추기
+      //   i++;
+      // }
+
+      // console.log(i);
+      // i = 0;
+      // while (i < 10) {
+      //   i++;
+      //   if (i % 2 === 0) {
+      //     continue; // 건너뛰기
+      //   }
+      //   console.log(i);
+      // }
+      // for (i = 0; i < 10; i++) {
+      //   for (let j = 0; j < 10; j++) {
+      //     console.log(i, j);
+      //   }
+      // }
+      // for (i = 0; i < 5; i++) {
+      //   if (i % 2 === 0) continue;
+      //   for (let j = 0; j < 5; j++) {
+      //     if (j % 2 === 0) continue;
+      //     for (let k = 0; k < 5; k++) {
+      //       if (k % 2 === 0) continue;
+      //       console.log(i, j, k);
+      //     }
+      //   }
+      // }
+      // for (i = 0; i < 10; i++) {
+      //   if (i % 2 === 0) continue;
+      //   for (let j = 0; j < 10; j++) {
+      //     if (j % 2 === 0) continue;
+      //     console.log(i, j, i * j);
+      //   }
+      // }
+      // for (i = 0; i < 10; i++) {
+      //   for (let j = 0; j < 10; j++) {
+      //     if (i % 2 === 0 || j % 2 === 0) continue;
+      //     console.log(i, "*", j, "=", i * j);
+      //   }
+      // }
+      for (i = 1; i < 10; i += 2) {
+        for (let j = 1; j < 10; j += 2) {
+          console.log(i, "*", j, "=", i * j);
+        }
+      }
+    </script>
+  </body>
+</html>

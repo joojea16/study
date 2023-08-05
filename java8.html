@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체 리터널</title>
+  </head>
+  <body>
+    <script>
+      const obj = {
+        bc: "hello",
+        "2ca": "hello1",
+        "c-a": "hello2",
+        "c a": "hello3",
+      };
+      document.write(obj.bc);
+      document.write("<br>" + obj["bc"]);
+      // document.write("<br>" + obj.2ca); 에러남
+      document.write("<br>" + obj["2ca"]);
+      document.write("<br>" + obj["c a"]);
+
+      const name = "data";
+      // document.write(joojea["name"]);
+      // document.write(joojea[name]); /*따옴표차이로 변수로 변함*/
+      document.write("<br>" + obj.ac); /*undefind*/
+      obj.bc = "hello5";
+      document.write("<br>" + obj.bc);
+      delete obj.bc;
+      document.write("<br>" + obj.bc);
+      document.write("<br>");
+      document.write({} === {}); //객체끼리는 false가 나옴
+      document.write("<br>");
+      //객체끼리 비교할때는 변수를 써야함
+      const a = { name: "joojea" };
+      const array = [1, 2, a];
+      document.write(a === array[2]);
+      // {}를 객체리터널 []를 배열 리터널
+      document.write("<br>");
+      const b = a;
+      a.name = "hero";
+      document.write(b.name); //객체끼리 연결은 참조관계라 값이 같다
+      document.write("<br>");
+      let c = "joojea";
+      let d = c;
+      c = "zero";
+      document.write(d);
+      document.write(c); //객체가 아닐때는 따로 저장이된다
+      document.write("<br>");
+      const joojea = {
+        name: {
+          first: "재",
+          last: "주",
+        },
+        gender: "m",
+      };
+      document.write(joojea.name.last);
+      document.write("<br>");
+      document.write(joojea["name"]["last"]);
+    </script>
+  </body>
+</html>

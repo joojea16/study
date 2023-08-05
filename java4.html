@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>*찍기</title>
+  </head>
+  <body>
+    <script>
+      for (let i = 0; i < 10; i += 2) {
+        console.log("*".repeat(i + 1));
+      }
+      for (let i = 0; i < 10; i += 2) {
+        console.log("*".repeat(9 - i));
+      }
+      for (let i = 0; i < 5; i++) {
+        console.log(" ".repeat(i) + "*".repeat(5 - i));
+      }
+      for (let i = 0; i < 6; i++) {
+        console.log(" ".repeat(5 - i) + "*".repeat(i));
+      }
+      // console.log(" ".repeat(15) + "*".repeat(1));
+      // console.log(" ".repeat(14) + "*".repeat(3));
+      // console.log(" ".repeat(13) + "*".repeat(5));
+      // console.log(" ".repeat(12) + "*".repeat(7));
+      // console.log(" ".repeat(11) + "*".repeat(9));
+    </script>
+  </body>
+</html>

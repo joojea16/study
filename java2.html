@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>조건부 연산자(삼항 연산자)</title>
+  </head>
+  <body>
+    <script>
+      let a = 5 > 0 ? " 참입니다" : " 거짓입니다";
+      document.write(a);
+      let b = 5 < 0 ? " 참입니다" : " 거짓입니다";
+      document.write(b);
+      let c = 7;
+      if (c > 5) {
+        document.write(" 참");
+      } else {
+        document.write(" 거짓");
+      }
+      let d = 2;
+      if (d > 5) {
+        document.write(" 참");
+      } else {
+        document.write(" 거짓");
+      }
+      let e = true;
+      let f = false;
+      let value = e ? (f ? " 둘다참" : " e만참") : " e거짓";
+      document.write(value);
+      value = f ? e : e ? " e가참" : " 둘다거짓";
+      document.write(value);
+      let cond = true;
+      value = "";
+      if (cond) {
+        value = " 참";
+      } else {
+        value = " 거짓";
+      }
+      document.write(value);
+      value = cond ? " 참" : " 거짓";
+      document.write(value);
+      cond = false;
+
+      switch (cond) {
+        case true:
+          value = " 참";
+          break;
+        case false:
+          value = " 거짓";
+          break;
+      }
+      document.write(value);
+    </script>
+  </body>
+</html>

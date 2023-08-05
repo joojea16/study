@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>매개변수와 인수</title>
+  </head>
+  <body>
+    <script>
+      //   function a(parameter) {
+      //     document.write(parameter);
+      //   }
+      //   a("argument");
+      //   //parameter = 매개변수  argument = 인수
+      //   function b(x, y, z, k) {
+      //     document.write(x, y, z, k);
+      //     console.log(arguments);
+      //   }
+      //   b("hello", "joojea", "java");
+      function add(x, y) {
+        return x + y;
+      }
+      document.write(add(5));
+
+      const f = (x, y, z) => {
+        return x * y * z;
+      };
+      document.write("<br>" + f(2, 3, 4));
+
+      const c = (x, y, z) => x * y * z;
+      document.write("<br>" + c(2, 3, 4));
+      //중괄호 뒤에 리턴이오면 중괄호 리턴 생략가능
+    </script>
+  </body>
+</html>

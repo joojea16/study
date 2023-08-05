@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로또 생성기</title>
+    <style>
+      .ball {
+        display: inline-block;
+        border: 1px solid #000;
+        border-radius: 20px;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 20px;
+        text-align: center;
+        margin-left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="result">추첨 결과는?</div>
+    <div id="bonus">보너스:</div>
+    <script>
+      const candidate = Array(45)
+        .fill()
+        .map((v, i) => i + 1);
+      const shuffle = [];
+      while (candidate.length > 0) {
+        const random = Math.floor(Math.random() * candidate.length); // 무작위 인덱스 뽑기
+        const spliceArray = candidate.splice(random, 1); //뽑은 값은 배열에 들어있음
+        const value = spliceArray[0]; //배열에 들어 있는 값을 꺼내어
+        shuffle.push(value); // 셔플에 넣어준다
+      }
+      console.log(shuffle);
+      const winBalls = shuffle.slice(0, 6).sort((a, b) => a - b);
+      const bonus = shuffle[6];
+      console.log(winBalls, bonus);
+
+      const $result = document.querySelector("#result");
+      const $bonus = document.querySelector("#bonus");
+
+      function colorize(number, $tag) {
+        if (number < 10) {
+          $tag.style.backgroundColor = "red";
+          $tag.style.color = "white";
+        } else if (number < 20) {
+          $tag.style.backgroundColor = "orange";
+        } else if (number < 30) {
+          $tag.style.backgroundColor = "yellow";
+        } else if (number < 40) {
+          $tag.style.backgroundColor = "blue";
+          $tag.style.color = "white";
+        } else {
+          $tag.style.backgroundColor = "green";
+          $tag.style.color = "white";
+        }
+      }
+
+      const showBall = (number, $target) => {
+        const $ball = document.createElement("div");
+        $ball.className = "ball";
+        colorize(number, $ball);
+        $ball.textContent = number;
+        $target.appendChild($ball);
+      };
+      for (let i = 0; i < 6; i++) {
+        setTimeout(() => {
+          showBall(winBalls[i], $result);
+        }, (i + 1) * 1000);
+      }
+      setTimeout(() => {
+        showBall(bonus, $bonus);
+      }, 7000);
+    </script>
+  </body>
+</html>

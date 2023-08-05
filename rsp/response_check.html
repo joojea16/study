@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>response</title>
+    <style>
+      #screen {
+        width: 300px;
+        height: 200px;
+        text-align: center;
+        user-select: none;
+      }
+      #screen.waiting {
+        background-color: aqua;
+      }
+      #screen.ready {
+        background-color: red;
+        color: #fff;
+      }
+      #screen.now {
+        background-color: greenyellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="screen" class="waiting">클릭해서 시작하세요</div>
+    <div id="result"></div>
+    <script>
+      const $screen = document.querySelector("#screen");
+      const $result = document.querySelector("#result");
+      let startTime;
+      let endTime;
+      const records = [];
+      let timeoutId;
+      //함수는 한번실행되면 그안에 변수 값을 다 없애버린다.
+      // 시간 변수를 함수 밖에서 선언한다
+      $screen.addEventListener("click", (event) => {
+        if (event.target.classList.contains("waiting")) {
+          $screen.classList.remove("waiting");
+          $screen.classList.add("ready");
+          $screen.textContent = "초록색이 되면 클릭하세요";
+
+          timeoutId = setTimeout(function () {
+            startTime = new Date();
+            $screen.classList.replace("ready", "now");
+            $screen.textContent = "클릭하세요";
+            //첫시간재기
+          }, Math.floor(Math.random() * 1000) + 2000); //2초에서 3초사이
+        } else if (event.target.classList.contains("ready")) {
+          clearTimeout(timeoutId);
+          $screen.classList.replace("ready", "waiting");
+          $screen.textContent = "성급히 눌렀습니다.";
+        } else if (event.target.classList.contains("now")) {
+          //끝시간재기
+          endTime = new Date();
+          const current = endTime - startTime;
+          records.push(current);
+          const average = records.reduce((a, c) => a + c) / records.length;
+          //reduce a는 누적값 c 는 현재값 for문처럼 돈다 총 합계나온다
+          //['철수','영희','현영','한솔'].reduce((a,c,i)=>{a[i]=c;return a},{})
+          //배열을 객체로 바꿀수있다.
+          //i 는 인덱스 값이다
+          //{0: '철수', 1: '영희', 2: '현영', 3: '한솔'}
+          $result.textContent = `현재  ${current}ms, 평균: ${average}ms`;
+          startTime = null;
+          endTime = null;
+          $screen.classList.replace("now", "waiting");
+          $screen.textContent = "클릭해서 시작하세요";
+          //시간차이 저장하기
+        }
+      });
+    </script>
+  </body>
+</html>

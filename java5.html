@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배열</title>
+  </head>
+  <body>
+    <script>
+      const fruits = ["사과", "오렌지", "배", "딸기"];
+      console.log(fruits[0]);
+      console.log(fruits[1]);
+      console.log(fruits[2]);
+      console.log(fruits[3]);
+
+      const arrayOfArray = [
+        [1, 2, 3],
+        [4, 5],
+      ];
+      document.write(arrayOfArray[0]);
+      const a = 10;
+      const b = 20;
+      const variableArray = [a, b, 30];
+      document.write("<br>" + variableArray[1]);
+
+      const everything = ["사과", 1, undefined, true, "배열", null];
+      const duplicated = ["가", "가", "가", "가", "가"];
+      const empty = [];
+      document.write("<br>" + everything.length);
+      document.write("<br>" + empty.length);
+
+      const emptyValue = [null, undefined, false, "", NaN];
+      document.write("<br>" + emptyValue.length);
+      document.write("<br>" + emptyValue[emptyValue.length - 1]);
+
+      const target = ["a", "b", "c", "d", "e"];
+      //   target[5] = "f";
+      target[target.length] = "f";
+      document.write("<br>" + target);
+      target.unshift("가");
+      document.write("<br>" + target);
+      target.push("나");
+      document.write("<br>" + target);
+      target.pop();
+      document.write("<br>" + target);
+      target.shift();
+      document.write("<br>" + target);
+      target.splice(1, 2, "나", "다");
+      document.write("<br>" + target);
+      target.splice(3, 0, "라");
+      document.write("<br>" + target);
+      const result = target.includes("다");
+      const result1 = target.includes("카");
+      document.write("<br>" + result);
+      document.write("<br>" + result1);
+      //include는 값이 존재하는지만 알려줌
+      const target2 = ["라", "나", "다", "라", "다"];
+      const result2 = target2.indexOf("다"); //앞에서 부터 위치
+      const result3 = target2.lastIndexOf("라"); //뒤에서 부터 위치
+      const result4 = target2.includes("가");
+      document.write("<br>" + result2);
+      document.write("<br>" + result3);
+      document.write("<br>" + result4);
+      let i = 0;
+      while (i < target.length) {
+        document.write("<br>" + target[i]);
+        i++;
+      }
+
+      const arr = ["가", "라", "다", "라", "마", "라"];
+      while (arr.indexOf("라") > -1) {
+        arr.splice(arr.indexOf("라"), 1);
+      }
+      document.write("<br>" + arr);
+    </script>
+  </body>
+</html>
